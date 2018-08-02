@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ pageTitle }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin=""/>
+
+<!--  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js" crossorigin=""></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+          integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+          crossorigin=""></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="row breadcrumb" style="background-color: aliceblue">
+    <div>Пешеходни Пътеки Онлайн карта</div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-9 breadcrumb">
+      <div id="mapid" class="" style="height: 600px;"></div>
+    </div>
+    <div class="col-md-3 breadcrumb" style="background-color: beige">
+      <div class="">
+        <button class="btn btn-success" id="showLanes">Покажи всички пътеки</button>
+      </div>
+      <div><hr></div>
+
+      <div>
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <input placeholder="Търсене по дата"  class="form-control form-control-sm" id="dateSearch"/>
+            <input type="submit" value="Търси"  class="btn btn-outline-primary btn-sm" />
+          </div>
+        </form>
+
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <input placeholder="Търсене по проблем" class="form-control form-control-sm" id="problemSearch"/>
+            <input type="submit" value="Търси" class="btn btn-outline-primary btn-sm btn-sm" />
+          </div>
+        </form>
+      </div>
+
+      <div><hr></div>
+      <button class="btn btn-primary btn-sm" id="last5Events">Покажи посл. 5 съобщения</button>
+      <div><br></div>
+
+      <ul class="list-group">
+        <li class="list-group-item">съобщение 1</li>
+        <li class="list-group-item">съобщение 2</li>
+        <li class="list-group-item">съобщение 3</li>
+        <li class="list-group-item">съобщение 4</li>
+        <li class="list-group-item">съобщение 5</li>
+      </ul>
+
+      <div><hr></div>
+      <button class="btn btn-primary btn-sm" id="allEvents">Всички съобщения</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <script type="text/javascript" src="public/init_v1_201808.js"></script>
+</body>
+</html>
