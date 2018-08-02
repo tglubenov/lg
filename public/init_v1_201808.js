@@ -25,7 +25,7 @@ function BoundingBox() {
 //loads the well markers
 wellmaxzoom = 5;
 var geoJsonUrl ="http://localhost:8080/geoserver/cite/ows? service=WFS&version=1.0.0&request=GetFeature&typeName=cite:bc_well_data_wgs&maxFeatures=4000&outputFormat=application/json";
-var geoPoints = "http://localhost:8080/lgdata"
+var geoPoints = "http://206.81.20.203:8080/lgdata";
 
 var geojsonLayerWells = new L.GeoJSON();
 
