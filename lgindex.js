@@ -18,6 +18,9 @@ require('dotenv').config();
 var bodyParser = require('body-parser');
 app.use( bodyParser.json() );
 
+app.use(express.static('public'));
+app.use(express.static('files'));
+
 app.get('/', function(req, res) {
 //  res.sendFile(path.join(__dirname + '/init_leaflet.html'));
   res.sendFile(path.join(__dirname + '/init_map_v201808.html'));
@@ -53,6 +56,20 @@ app.get('/lgdata', function (req, res) {
   });
 });
 
+app.get('/last5', (req, res) => {
+  Json.find({}, {'properties':'','type': '', 'geometry': ''}).sort('-properties.receive_timestamp').limit(5).exec((err, docs) => {
+    res.json(docs);
+  });
+
+});
+
+app.get('/lgdata/:date', (req, res) => {
+  Json.find({}, {})
+});
+
+app.get('/lgdata/:err', (req, res) => {
+
+});
 
 app.get('/map', (req, res) => {
   res.render('index', {'title': 'Светлинни Пътеки проект'});
