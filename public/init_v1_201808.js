@@ -2,7 +2,8 @@
 
 
 var base_uri = "http://206.81.20.203:8080";
-//var base_uri = "http://localhost:8080";
+
+//var base_uri = "http://localhost:8085";
 
 var map = new L.map('mapid', {
   center: new L.LatLng(42.617791, 25.026855),
@@ -40,10 +41,61 @@ var geojsonLayerWells = new L.GeoJSON().on(
     var pop = '';
     Object.keys(els).forEach(function (key, index) {
       //console.log(key, index, els[key]);
-      pop += '<li>' + key + ':' + els[key] + '</li>';
+      if (key == 'lon' || key == 'lat') {
+        console.log(els[key]);
+      } else if (key == 'M1' || key == 'M2') {
+        k = 'M линия ';
+        if (els[key] == 1) {
+          msg = 'OK';
+        } else {
+          msg = 'NOK';
+        }
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+      } else if (key =='SL') {
+        k = 'S линии 1 и 2';
+        if (els[key] == 1) {
+          msg = 'OK';
+        } else {
+          msg = 'NOK';
+        }
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+
+      } else if (key == 'MR') {
+        k = 'М радио сензор';
+        if (els[key] == 1) {
+          msg = 'OK';
+        } else {
+          msg = 'NOK';
+        }
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+
+      } else if (key == 'SR') {
+        k = 'S радио сензор';
+        if (els[key] == 1) {
+          msg = 'OK';
+        } else {
+          msg = 'NOK';
+        }
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+
+      } else if (key == 'TS') {
+        k = 'Текущ режим';
+        msg = 'Няма пешеходци'
+
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+      } else if (key == 'PD') {
+        k = 'Пресекли пешеходци';
+        msg = els[key];
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+      }
+      else {
+        console.log('aaa');
+      }
+      console.log(key);
+//      pop += '<li>' + key + ':' + els[key] + '</li>';
     })
 
-    pop = '<ul>' + pop + '</ul>';
+    pop = '<table><tr><th>Параметър</th><th>Стойност</th></tr>' + pop + '</table>';
 
     console.log(pop);
 
@@ -152,8 +204,6 @@ document.querySelector('#last5Events').addEventListener('click',
       }
     }
   });
-
-
 
 
 // Addons by Thirth parties
