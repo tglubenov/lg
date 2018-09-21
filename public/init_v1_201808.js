@@ -80,7 +80,8 @@ var geojsonLayerWells = new L.GeoJSON().on(
 
       } else if (key == 'TS') {
         k = 'Текущ режим';
-        msg = 'Няма пешеходци'
+        msg = 'Няма пешеходци';
+        console.log('TS:==>', els[key]);
 
         pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
       } else if (key == 'PD') {
