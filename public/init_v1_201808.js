@@ -41,8 +41,16 @@ var geojsonLayerWells = new L.GeoJSON().on(
     var pop = '';
     Object.keys(els).forEach(function (key, index) {
       //console.log(key, index, els[key]);
+
+
       if (key == 'lon' || key == 'lat') {
         console.log(els[key]);
+        //try to geocode if err show lat and lon
+
+      } else if(key=='R1' || key == 'R2') {
+        k = 'R линия';
+        msg = els[key];
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
       } else if (key == 'M1' || key == 'M2') {
         k = 'M линия ';
         if (els[key] == 1) {
@@ -96,7 +104,7 @@ var geojsonLayerWells = new L.GeoJSON().on(
 //      pop += '<li>' + key + ':' + els[key] + '</li>';
     })
 
-    pop = '<table><tr><th>Параметър</th><th>Стойност</th></tr>' + pop + '</table>';
+    pop = '<table><tr><th>Параметър</th><th>Статус</th></tr>' + pop + '</table>';
 
     console.log(pop);
 
