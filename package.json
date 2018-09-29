@@ -11,8 +11,10 @@
     "ndev": "nodemon ./lgindex.js --ignore node_modules/ -e js,html,css"
   },
   "dependencies": {
+    "@mapquest/geocoding": "^0.0.4",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "d3": "^5.7.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "hbs": "^4.0.1",
