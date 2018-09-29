@@ -1,6 +1,5 @@
 const morgan = require('morgan');
 
-
 var express = require('express');
 var app = express();
 var hbs = require('hbs');
@@ -73,7 +72,6 @@ app.get('/lgdata/:err', (req, res) => {
 
 app.get('/map', (req, res) => {
   res.render('index', {'title': 'Светлинни Пътеки проект'});
-
 });
 
 // Async axios var for accessing web resources

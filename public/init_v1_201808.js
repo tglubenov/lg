@@ -2,12 +2,11 @@
 
 
 var base_uri = "http://206.81.20.203:8080";
-
 //var base_uri = "http://localhost:8085";
 
 var map = new L.map('mapid', {
-  center: new L.LatLng(42.617791, 25.026855),
-  zoom: 7
+  center: new L.LatLng(42.761722, 25.237705),
+  zoom: 6
 });
 
 var tileLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -136,11 +135,11 @@ $.ajax({
 
 //console.log(BoundingBox());
 
-var allg = document.querySelector('#showLanes').textContent;
+//var allg = document.querySelector('#showLanes').textContent;
 
 //document.querySelector('#layers').style.display = 'none';
 
-console.log(allg);
+//console.log(allg);
 
 map.on('moveend', function(){
 
@@ -217,3 +216,20 @@ document.querySelector('#last5Events').addEventListener('click',
 
 // Addons by Thirth parties
 map.addControl(new L.Control.Fullscreen());
+
+
+document.getElementsByTagName('select')[0].onchange = function() {
+  var index = this.selectedIndex;
+  var inputText = this.children[index].innerText.trim();
+  console.log(inputText);
+  if (inputText == 'Албена') {
+    map.setView(new L.LatLng(43.36878055555555, 28.08228888888889), 16);
+    console.log('42.653702777777774,23.34400833333333');
+  } else if (inputText == 'София') {
+    map.setView(new L.LatLng(42.653702777777774,23.34400833333333), 16);
+  } else {
+    map.setView(new L.LatLng(42.761722,25.237705), 7);
+  }
+}
+
+

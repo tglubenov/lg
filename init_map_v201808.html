@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{{ pageTitle }}</title>
+  <title>Пешеходни Пътеки Онлайн карта</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -38,24 +38,26 @@
     </div>
     <div class="col-md-3 breadcrumb" style="background-color: beige">
       <div class="">
-        <button class="btn btn-success" id="showLanes">Избери населено място</button>
+        <select>
+          <option value="all">Покажи всички</option>
+          <option value="albena">Албена</option>
+          <option value="sofia">София</option>
+        </select>
+<!--        <button class="btn btn-success" id="showLanes">Избери населено място</button>-->
       </div>
       <div><hr></div>
 
       <div>
         <form class="form-inline">
           <div class="form-group mb-2">
-            <input placeholder="Покажи притока на пешеходци по дата и час"  class="form-control form-control-sm" id="dateSearch"/>
-            <input type="submit" value="Търси"  class="btn btn-outline-primary btn-sm" />
+            <select>
+              <option value="all">Покажи всички</option>
+              <option value="lg">LG</option>
+            </select>
           </div>
         </form>
 
-        <form class="form-inline">
-          <div class="form-group mb-2">
-            <input placeholder="Покажи всички съоръжения с регистрирана." class="form-control form-control-sm" id="problemSearch"/>
-            <input type="submit" value="Търси" class="btn btn-outline-primary btn-sm btn-sm" />
-          </div>
-        </form>
+
       </div>
 
       <div><hr></div>
@@ -75,6 +77,14 @@
       <button class="btn btn-primary btn-sm" id="allEvents">Всички съобщения</button>
 
       -->
+      <div>
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <input placeholder="Съоръж.по статус" class="form-control form-control-sm" id="problemSearch"/>
+            <input type="submit" value="Търси" class="btn btn-outline-primary btn-sm btn-sm" />
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
