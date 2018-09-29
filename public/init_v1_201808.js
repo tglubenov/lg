@@ -48,12 +48,19 @@ var geojsonLayerWells = new L.GeoJSON().on(
         k = 'R линия';
         msg = els[key];
         pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
-      } else if (key == 'M1' || key == 'M2') {
-        k = 'M линия 1';
-        if (els[key] == 1) {
-          msg = 'OK';
+      } else if (key == 'M1') {
+//        kM1 = 'M линия 1 и 2';
+        msgM1 = els[key];
+      } else if (key == 'M2') {
+        k = 'M линия 1 и 2';
+        if (msgM1) {
+          if (els[key] == 1 && msgM1 == 1) {
+            msg = 'OK';
+          } else {
+            msg = 'NOK';
+          }
         } else {
-          msg = 'NOK';
+          msg = 'NOK'
         }
         pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
       } else if (key =='SL') {
