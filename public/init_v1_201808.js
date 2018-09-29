@@ -37,15 +37,19 @@ var geojsonLayerWells = new L.GeoJSON().on(
     //console.log(e.feature.properties);
     var els = e.layer.feature.properties;
     console.log(els.R1);
-    var pop = '<tr><td>Град</td><td>Албена</td></tr><tr><td>Адрес</td><td>Оазис</td></tr>';
+    var pop = '<tr><td>Град</td><td>Албена</td></tr><tr><td>Адрес</td><td>hotel Paradise Blue</td></tr>';
     Object.keys(els).forEach(function (key, index) {
       //console.log(key, index, els[key]);
       if (key == 'lon' || key == 'lat') {
         console.log(els[key]);
         //try to geocode if err show lat and lon
 
-      } else if(key=='R1' || key == 'R2') {
-        k = 'R линия';
+      } else if(key=='R1') {
+        k = 'ред 1';
+        msg = els[key];
+        pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
+      } else if (key == 'R2') {
+        k = 'ред 2';
         msg = els[key];
         pop += '<tr><td>' + k + '</td><td>' + msg + '</td></tr>';
       } else if (key == 'M1') {
