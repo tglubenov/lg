@@ -49,7 +49,7 @@ console.log(Json);
 
 /* GET layers json data. */
 app.get('/lgdata', function (req, res) {
-  Json.find({},{'properties':'','type': '', 'geometry': ''}).sort('-properties.receive_timestamp').limit(25).exec(function (err, docs) {
+  Json.find({},{'properties':'','type': '', 'geometry': ''}).sort('-properties.receive_timestamp').limit(5).exec(function (err, docs) {
     //console.log(docs);
     res.json(docs);
   });
