@@ -1,0 +1,19 @@
+.lr {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: inline;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+.leftsided {
+  float: right;
+  padding: 1px;
+  margin-left: 6px;
+  display: inline;
+}
