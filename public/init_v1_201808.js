@@ -43,7 +43,7 @@ var geojsonLayerWells = new L.GeoJSON().on(
 //    console.log(e.layer.feature.properties);
     //console.log(e.feature.properties);
     var els = e.layer.feature.properties;
-    var pop = '<tr><td>Град</td><td>Албена</td></tr><tr><td>Адрес</td><td>hotel Paradise Blue</td></tr>';
+    var pop = '<tr><td>Място</td><td>Албена</td></tr><tr><td>Адрес</td><td>hotel Paradise Blue</td></tr>';
     Object.keys(els).forEach(function (key, index) {
       //console.log(key, index, els[key]);
       if (key == 'lon' || key == 'lat') {
@@ -111,7 +111,8 @@ var geojsonLayerWells = new L.GeoJSON().on(
       console.log(key);
 //      pop += '<li>' + key + ':' + els[key] + '</li>';
     });
-    pop = '<table><tr><th>Параметър</th><th>Статус</th></tr>' + pop + '</table>';
+    footerer = '<tr><td>Връзка</td><td><a href="/chart" target="_blank">Графика</a></td></tr>';
+    pop = '<table><tr><th>Параметър</th><th>Статус</th></tr>' + pop + footerer + '</table>';
 //    console.log(pop);
     var pop1 = e.layer.bindPopup(pop);
   }

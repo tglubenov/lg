@@ -25,6 +25,9 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/init_map_v201808.html'));
 });
 
+app.get('/chart', function (req, res) {
+  res.sendFile(path.join(__dirname + '/chart.html'));
+})
 
 const mongoose = require('mongoose');
 
@@ -54,6 +57,14 @@ app.get('/lgdata', function (req, res) {
     res.json(docs);
   });
 });
+
+app.get('/timeseries', function (req, res) {
+  Json.find({'properties.lat': 28.08228888888889,'properties.lon': 43.36878055555555},{'properties.receive_timestamp':'', 'properties.PD':''}).sort('-properties.receive_timestamp').limit(25).exec(function (err, docs) {
+//    console.log(docs);
+    res.json(docs);
+  });
+});
+
 
 app.get('/last5', (req, res) => {
   Json.find({}, {'properties':'','type': '', 'geometry': ''}).sort('-properties.receive_timestamp').limit(5).exec((err, docs) => {

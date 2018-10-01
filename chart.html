@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link href="public/c3-0.6.7/c3.css" rel="stylesheet">
+
+  <!-- Load d3.js and c3.js -->
+  <script src="public/d3_dist/d3.min.js" charset="utf-8"></script>
+  <script src="public/c3-0.6.7/c3.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Пешеходна пътека Албена - Пресекли пешеходци</title>
+</head>
+<body>
+
+<div id="chart"></div>
+
+<script>
+//  var base_uri = "http://localhost:8085/";
+  var base_uri = "http://206.81.20.203:8080";
+  var chart_uri = base_uri + '/timeseries';
+
+  function loadPD(data) {
+    console.log(data);
+    var dates = [];
+    var pds = [];
+    for (i = 0; i < data.length; i++) {
+      console.log(data[i]);
+      var datael = data[i];
+      dates.push(datael.properties.receive_timestamp);
+      pds.push(datael.properties.PD);
+    }
+    dates.reverse();
+    pds.reverse();
+
+    x_arr = dates;
+    x_arr.splice(0, 0, 'x');
+    pd_arr = pds;
+    pd_arr.splice(0,0,'пешеходци');
+
+    var chart = c3.generate({
+      data: {
+        x: 'x',
+        xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
+        columns: [
+          x_arr,
+          pd_arr,
+        ]
+      },
+      axis: {
+        x: {
+          type: 'timeseries',
+          localtime: true,
+          tick: {
+            format: '%Y-%m-%d %H:%M:%S'
+          }
+        }
+      }
+    });
+  }
+
+  $.ajax({
+    url: chart_uri,
+    dataType: 'json',
+    jsonpCallback: 'loadPD',
+    success: loadPD,
+  });
+
+</script>
+
+</body>
+</html>
