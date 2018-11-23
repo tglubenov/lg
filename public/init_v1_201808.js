@@ -43,7 +43,7 @@ var geojsonLayerWells = new L.GeoJSON().on(
 //    console.log(e.layer.feature.properties);
     //console.log(e.feature.properties);
     var els = e.layer.feature.properties;
-    var pop = '<tr><td>Място</td><td>Албена</td></tr><tr><td>Адрес</td><td>hotel Paradise Blue</td></tr>';
+    var pop = '<tr><td>Място</td><td>София-БАН</td></tr><tr><td>Адрес</td><td>блок 1</td></tr>';
     Object.keys(els).forEach(function (key, index) {
       //console.log(key, index, els[key]);
       if (key == 'lon' || key == 'lat') {
