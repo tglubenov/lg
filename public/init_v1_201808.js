@@ -220,7 +220,7 @@ document.getElementsByTagName('select')[0].onchange = function() {
     map.setView(new L.LatLng(43.36878055555555, 28.08228888888889), 16);
     console.log('42.653702777777774,23.34400833333333');
   } else if (inputText == 'София - БАН') {
-    map.set(new L.LatLng(42.677009, 23.367479),16);
+    map.setView(new L.LatLng(42.677009, 23.367479),16);
 //    map.setView(new L.LatLng(42.653702777777774,23.34400833333333), 16);
   } else {
     map.setView(new L.LatLng(42.761722,25.237705), 7);
