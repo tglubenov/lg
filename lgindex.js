@@ -65,6 +65,13 @@ app.get('/timeseries', function (req, res) {
   });
 });
 
+app.get('/timeseries_var', function (req, res) {
+  Json.find({'properties.lat': 43.20978055555556,'properties.lon': 27.91121111111111},{'properties.receive_timestamp':'', 'properties.PD':''}).sort('-properties.receive_timestamp').limit(25).exec(function (err, docs) {
+//    console.log(docs);
+    res.json(docs);
+  });
+});
+
 
 app.get('/last5', (req, res) => {
   Json.find({}, {'properties':'','type': '', 'geometry': ''}).sort('-properties.receive_timestamp').limit(5).exec((err, docs) => {
